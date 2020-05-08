@@ -1,6 +1,8 @@
 from TextGenerator import TextGenerator
+import re
 
-lines = open('texts/treny.txt', encoding='utf8').read().rstrip().split('.')
+lines = re.split('\\.|\\!|\\?', open('texts/treny.txt', encoding='utf8').read())
+
 for i in range(len(lines)):
     lines[i] += '.'
 

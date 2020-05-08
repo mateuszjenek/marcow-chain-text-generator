@@ -2,7 +2,6 @@ import numpy
 
 class TextGenerator:
     word_dict = {}
-    end_line_symbols = ['.', '?', '!']
     
     def __init__(self, texts):
         self.feed(texts)
@@ -11,9 +10,10 @@ class TextGenerator:
         yield ("", words[0])
         for i in range(len(words)-1):
             yield (words[i], words[i+1])
+        yield (words[-1], "")
 
     def __add_text_to_dict(self, text):
-        pairs = self.__make_pairs(text.split()) # remove here dots
+        pairs = self.__make_pairs(text.split())
         for word_1, word_2 in pairs:
             if word_1 in self.word_dict.keys():
                 self.word_dict[word_1].append(word_2)
@@ -37,6 +37,6 @@ class TextGenerator:
                 break
             next_word = numpy.random.choice(self.word_dict[chain[-1]])
             chain.append(next_word)
-            if next_word[-1] in self.end_line_symbols:
+            if next_word == "":
                 break
-        return ' '.join(chain)      
+        return ' '.join(chain)
