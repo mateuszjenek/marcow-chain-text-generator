@@ -3,14 +3,13 @@ import tkinter as tk
 from marcow_chains.FirstOrderMarcowChain import FirstOrderMarcowChain
 from generators.MotivateTextGenerator import MotivateTextGenerator
 from generators.PickUpLinesGenerator import PickUpLinesGenerator
-from frames.MotivateFrame import MotivateFrame
-from frames.PickUpFrame import PickUpFrame
+from frames.GenericFrame import GenericFrame
 
 motivate_generator = MotivateTextGenerator(FirstOrderMarcowChain())
 pickup_generator = MotivateTextGenerator(FirstOrderMarcowChain())
 
-motivate_frame = MotivateFrame(motivate_generator)
-pickup_frame = PickUpFrame(pickup_generator)
+motivate_frame = GenericFrame("Motivate text generator", motivate_generator)
+pickup_frame = GenericFrame("Pick-up line generator", pickup_generator)
 
 window = tk.Tk()
 
