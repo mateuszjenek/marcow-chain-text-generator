@@ -9,5 +9,5 @@ class PickUpLinesGenerator(ITextGenerator):
         lines = open('texts/pick-up_lines.txt', encoding='utf8').read().splitlines()
         marcow_chain.feed(lines)
 
-    def generate(self):
+    def generate(self) -> str:
         return self.marcow_chain.generate()

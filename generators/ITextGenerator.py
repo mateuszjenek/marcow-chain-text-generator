@@ -1,3 +1,3 @@
 class ITextGenerator:
-    def generate(self):
+    def generate(self) -> str:
         pass
