@@ -4,9 +4,6 @@ from frames.IFrame import IFrame
 from generators.ITextGenerator import ITextGenerator
 
 class GenericFrame(IFrame):
-    title: str
-    generator: ITextGenerator
-
     _width: int = 50
 
     def __init__(self, title: str, generator: ITextGenerator):

@@ -3,7 +3,9 @@ import numpy
 from marcow_chains.IMarcowChain import IMarcowChain
 
 class FirstOrderMarcowChain(IMarcowChain):
-    word_dict = {}
+
+    def __init__(self):
+        self.word_dict = {}
     
     def feed(self, lines: [str]):
         for line in lines:

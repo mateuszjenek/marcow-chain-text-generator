@@ -5,8 +5,11 @@ from generators.MotivateTextGenerator import MotivateTextGenerator
 from generators.PickUpLinesGenerator import PickUpLinesGenerator
 from frames.GenericFrame import GenericFrame
 
-motivate_generator = MotivateTextGenerator(FirstOrderMarcowChain())
-pickup_generator = MotivateTextGenerator(FirstOrderMarcowChain())
+motivate_marcow_chain = FirstOrderMarcowChain()
+pickup_marcow_chain = FirstOrderMarcowChain()
+
+motivate_generator = MotivateTextGenerator(motivate_marcow_chain)
+pickup_generator = PickUpLinesGenerator(pickup_marcow_chain)
 
 motivate_frame = GenericFrame("Motivate text generator", motivate_generator)
 pickup_frame = GenericFrame("Pick-up line generator", pickup_generator)
