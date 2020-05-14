@@ -1,6 +1,6 @@
 import numpy
 
-from marcow_chains.IMarcowChain import IMarcowChain
+from model.IMarcowChain import IMarcowChain
 
 class FirstOrderMarcowChain(IMarcowChain):
 
@@ -22,6 +22,9 @@ class FirstOrderMarcowChain(IMarcowChain):
             if next_word == "":
                 break
         return ' '.join(chain)
+
+    def reset(self):
+        self.word_dict = {}
 
     def __add_line_to_dict(self, line):
         pairs = self.__make_pairs(line.split())

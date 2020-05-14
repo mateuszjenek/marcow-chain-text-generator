@@ -4,3 +4,6 @@ class IMarcowChain:
 
     def feed(self, lines: [str]):
         pass
+
+    def reset(self):
+        pass
