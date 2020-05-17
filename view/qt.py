@@ -28,13 +28,6 @@ class ApplicationWindow(QMainWindow):
             delete_all_action
         ])
 
-        information_action = QAction("&Informacje", self)
-        information_action.setShortcut(Qt.CTRL + Qt.Key_I)
-        # TODO: Show widget about
-        #ai.triggered.connect( self.showAboutWindow )
-        about_option_menu = self.menuBar().addMenu("&O programie")
-        about_option_menu.addAction(information_action)
-
         main_column = QVBoxLayout()
         main_column.addWidget(QLabel("Źródła danych:"))
 
