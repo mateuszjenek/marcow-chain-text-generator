@@ -12,6 +12,9 @@ class FirstOrderMarcowChain(IMarcowChain):
             self.__add_line_to_dict(line)
 
     def generate(self) -> str:
+        if len(self.word_dict) == 0: 
+            return ""
+
         first_word = numpy.random.choice(self.word_dict[""])
         chain = [first_word]
         while True:

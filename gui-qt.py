@@ -3,11 +3,11 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
 from view.qt import ApplicationWindow
-from viewmodel.ViewModel import ViewModel
+from controller.QTController import QTController
 
-view_model = ViewModel()
+controller = QTController()
 
 app = QApplication([])
-window = ApplicationWindow(view_model)
+window = ApplicationWindow(controller)
 window.show()
 app.exec_()
