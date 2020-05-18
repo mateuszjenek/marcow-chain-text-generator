@@ -4,8 +4,11 @@ from PyQt5.QtWidgets import *
 
 from view.QTApplicationWindow import QTApplicationWindow
 from controller.QTController import QTController
+from model.FirstOrderMarcowChain import FirstOrderMarcowChain
 
-controller = QTController()
+marcow_chain = FirstOrderMarcowChain()
+
+controller = QTController(marcow_chain)
 
 app = QApplication([])
 window = QTApplicationWindow(controller)
