@@ -4,9 +4,9 @@ from PyQt5.QtWidgets import *
 
 from controller.QTController import QTController
 
-class ApplicationWindow(QMainWindow):
+class QTApplicationWindow(QMainWindow):
     def __init__(self, controller: QTController):
-        super(ApplicationWindow, self).__init__()
+        super(QTApplicationWindow, self).__init__()
         
         self.controller = controller
         self.setWindowTitle("Generator tekstów")
