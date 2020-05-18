@@ -8,19 +8,18 @@ class QTApplicationWindow(QMainWindow):
     def __init__(self, controller: QTController):
         super(QTApplicationWindow, self).__init__()
         
-        self.controller = controller
         self.setWindowTitle("Generator tekstów")
 
         source_list_widget = QListWidget()
-        generated_text_widget = QLabel("Twój tato musi być tak przystojnym...")
+        generated_text_widget = QLabel("")
         
         new_source_action = QAction("&Nowe źródło", self)
         new_source_action.setShortcut(Qt.CTRL + Qt.Key_N)
-        new_source_action.triggered.connect(lambda: self.controller.add_source(source_list_widget, self))
+        new_source_action.triggered.connect(lambda: controller.add_source(source_list_widget, self))
 
         delete_all_action = QAction("&Usuń wszystkie", self)
         delete_all_action.setShortcut(Qt.CTRL + Qt.Key_U)
-        delete_all_action.triggered.connect(lambda: self.controller.reset_sources(source_list_widget))
+        delete_all_action.triggered.connect(lambda: controller.reset_sources(source_list_widget))
 
         source_option_menu = self.menuBar().addMenu("Źródła &danych")
         source_option_menu.addActions([
@@ -36,15 +35,15 @@ class QTApplicationWindow(QMainWindow):
 
         buttons_column = QVBoxLayout()
         new_source_button = QPushButton("Nowe źródło")
-        new_source_button.clicked.connect(lambda: self.controller.add_source(source_list_widget, self))
+        new_source_button.clicked.connect(lambda: controller.add_source(source_list_widget, self))
         buttons_column.addWidget(new_source_button)
 
         delete_sources_button = QPushButton("Usun wszystkie źródła")
-        delete_sources_button.clicked.connect(lambda: self.controller.reset_sources(source_list_widget))
+        delete_sources_button.clicked.connect(lambda: controller.reset_sources(source_list_widget))
         buttons_column.addWidget(delete_sources_button)
 
         generate_button = QPushButton("Generuj")
-        generate_button.clicked.connect(lambda: self.controller.generate_sentence(generated_text_widget))
+        generate_button.clicked.connect(lambda: controller.generate_sentence(generated_text_widget))
         buttons_column.addWidget(generate_button)
 
         top_row.addLayout(buttons_column)
